@@ -1,0 +1,27 @@
+//---------Susy setup---------//
+$total-columns:12;
+$column-width:4em;
+$gutter-width:1em;
+$grid-padding:$gutter-width;
+
+@include border-box-sizing;
+
+$small:20em;
+$medium:40em;
+$large:65em;
+
+header{
+	//layout for table size
+	@include at-breakpoint($medium){
+		h1{
+					
+		}//h1
+	}//at breakpoint for medium
+
+	//layout for desktop size
+	@include at-breakpoint($large){
+		h1{
+					
+		}//h1
+	}//at-breakpoint for large
+}

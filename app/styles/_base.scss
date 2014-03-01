@@ -1,0 +1,46 @@
+@import url("http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
+@import url("http://fonts.googleapis.com/css?family=Poller+One|Roboto");
+
+body{
+	font-family:$font-normal;
+	font-size:1.2em;
+	line-height:160%;
+	text-align:center;
+	background-color:lighten($lightgray,20);
+	color:darken($darkgray,20);
+}
+
+#{headings()}{
+	font-family:$font-strong;
+	font-weight:normal;
+	color:darken($cyan,20);
+	
+}
+
+h1{
+	font-size:1.5em;
+	
+}
+
+a{
+	color:$theme-red;
+	text-decoration:none;
+	&:hover{
+		color:$orange;
+	}
+}
+
+p{
+	text-align:left;
+	margin-bottom:10px;
+}
+
+li{
+	width:100%;
+	text-align:left;
+}
+
+small,.small{
+	font-size:0.8em;
+	color:$theme_gray;
+}
