@@ -1,0 +1,31 @@
+#todo-category{
+
+	.input-group{
+		
+		cursor:move;
+
+		.btn-complete{
+
+			width:1.8em;
+			height:100%;
+			background-color:lighten($lightgray,25);
+			position: absolute;
+			left:-2px;
+			@include border-left-radius(5px);
+
+			.checkBox{
+				cursor:pointer;
+				width:1em;
+				height:1em;
+				@include background-image(radial-gradient(1em 1em, lighten($lightgray,40) 0.1em, white 0.7em));
+				@include absolute-center;
+				@include border-radius(5px);
+
+			}//checkbox
+		}//button complete
+
+		.form-control{
+			padding-left:3em;
+		}
+	}//input group
+}//todo category

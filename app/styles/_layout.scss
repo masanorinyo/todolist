@@ -11,17 +11,59 @@ $medium:40em;
 $large:65em;
 
 header{
-	//layout for table size
-	@include at-breakpoint($medium){
-		h1{
-					
-		}//h1
-	}//at breakpoint for medium
 
-	//layout for desktop size
-	@include at-breakpoint($large){
+	height:4em;
+	position:relative;
+
+	h1{
+		height:40%;
+		@include absolute-center;
+	}//h1
+
+
+	//tablet size layout
+	@include at-breakpoint($medium){
+
 		h1{
 					
 		}//h1
-	}//at-breakpoint for large
-}
+
+	}//breakpoint for medium
+
+	//desktop size layout
+	@include at-breakpoint($large){
+
+		h1{
+					
+		}//h1
+
+	}//breakpoint for large
+
+}//header
+
+section#todo-list{
+	
+	#todo-generator{
+		margin-bottom:1em;
+	}//#todo-generator
+
+	#todo-category{
+		
+		.input-group{
+			margin-bottom:0.2em;	
+		}//.input-group
+
+	}//#todo-category
+
+	//tablet size layout
+	@include at-breakpoint($medium){
+
+	}//breakpoint for medium
+	
+	//desktop size layout
+	@include at-breakpoint($large){
+
+
+	}//breakpoint for large
+
+}//section#todo-list

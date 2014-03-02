@@ -6,15 +6,16 @@ body{
 	font-size:1.2em;
 	line-height:160%;
 	text-align:center;
-	background-color:lighten($lightgray,20);
+	background-color:rgb(245,245,245);
 	color:darken($darkgray,20);
 }
 
 #{headings()}{
+	@include text-shadow;
 	font-family:$font-strong;
-	font-weight:normal;
-	color:darken($cyan,20);
-	
+	font-weight:bold;
+	color:darken($cyan,5);
+	@include text-shadow;
 }
 
 h1{

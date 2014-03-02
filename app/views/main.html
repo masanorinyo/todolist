@@ -1,0 +1,19 @@
+<section id='todo-list'>
+	
+	<form ng-submit="addToDo()" id='todo-generator'>
+		<div class="input-group">
+			<input ng-model='todo' id="list-generator" class='form-control' type="text" placeholder='What do you want to accomplish?'>
+			<span class='input-group-btn'>
+				<input type="submit" value="Add" class="btn btn-primary">
+			</span>
+		</div>
+		<div ng-show='errorFound' class="errorBox">
+			<span class="errorMessage"></span>
+		</div>
+	</form>
+	
+	<sortable></sortable>
+	
+	<ul id="completedTasks"></ul>
+
+</section>

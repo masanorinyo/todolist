@@ -1,0 +1,11 @@
+<ul ui-sortable id='todo-category' ng-model='todo' ng-controller='ToDoListCtrl'>
+	<li class="input-group" ng-repeat='todo in todos'>
+		<div class="btn-complete">
+			<div ng-click='completed($index)' ng-class='' class="checkBox"></div>
+		</div>
+		<span class="form-control">{{todo}}</span>
+		<span class="input-group-btn">
+			<button ng-click='removeToDo($index)' class="btn btn-danger" >X</button>
+		</span>
+	</li>
+</ul>

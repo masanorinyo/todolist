@@ -1,4 +1,6 @@
-//default colors
+//*******Colors*******//
+
+//Default colors
 $lightgray      : #819090;
 $gray           : #708284;
 $mediumgray     : #536870;
@@ -16,23 +18,37 @@ $blue           : #2176C7;
 $cyan           : #259286;
 $green          : #738A05;
 
+//Transparent colors
 $transparent-darkblue:rgba(10,41,51,0.8);
 
-//from Adobe Kuler
+//Theme colors
 $theme_black:rgb(49,53,61);
 $theme_green:rgb(0,147,147);
 $theme_white:rgb(255,252,245);
 $theme_gray:rgb(217,215,213);
 $theme_red:rgb(255,56,0);
 
-//from google font
+//*******Fonts*******//
+
 $font-strong:helvetica;
 $font-semi-strong:helvetica;
 $font-normal:helvetica;
 $font-weak:helvetica;
 
-//configurable compass 
+//*******Configurable compass*******//
+
+//Border
 $default-border-radius:5px;
+
+//Box shadow
 $default-box-shadow-color: #333333;
+
+//Transition
 $default-transition-property:all;
 
+//Text shadow
+$default-text-shadow-color: rgba($darkblue, 0.6);
+$default-text-shadow-blur: 1px;
+$default-text-shadow-v-offset: 1px;
+$default-text-shadow-v-offset: 1px;
+$default-text-shadow-h-offset:1px;
