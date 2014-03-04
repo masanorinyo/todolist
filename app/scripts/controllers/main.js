@@ -3,82 +3,132 @@
 angular.module('toDoListApp')
 	.controller('MainCtrl', ['$scope',function ($scope){
 	
-	$scope.todos = [
+		$scope.todos=[
 			{
-				'title':'to do 1',
-				'note':'any thought?'
+				'topic': 'simple to do',
+				'info':[
+					{
+						'title': 'to do list 1',
+						'note': 'test 1'
+					},
+					{
+						'title': 'to do list 2',
+						'note': 'test 2'
+					},
+					{
+						'title': 'to do list 3',
+						'note': 'test 3'
+					}
+				]
 			},
 			{
-				'title':'to do 2',
-				'note':'another thought?'
-			},
-			{
-				'title':'to do 3',
-				'note':'any other thought?'
-			},
-		];
-
-	$scope.doneTasks = [
-			{
-				'title':'list 4',
-				'note':''
-			},
-			{
-				'title':'list 5',
-				'note':''
-			},
-			{
-				'title':'list 6',
-				'note':''
+				'topic': 'complex to do',
+				'info':[
+					{
+						'title': 'complex 1 ',
+						'note': 'complex test 1'
+					},
+					{
+						'title': 'complex 2',
+						'note': 'complex test 2'
+					}
+				]
 			}
 		];
 
-	//this adds a new todo task
-	$scope.addToDo = function(){
-	
-		$scope.errorFound=false;
-		var toDoTitle = $scope.todo;
-		
-		var errorBox = angular.element(document.querySelector('.errorMessage'));
-		
-		//this refers to the text type input which creates a new to do task.
-		var toDoGenerator = document.getElementById('list-generator');
-		
-		//this gets the number of characters used in the newly created task.
-		var numOfChars = toDoGenerator.value.length;
+		$scope.doneTasks=[
+			{
+				'topic': 'simple to do',
+				'info':[
+					{
+						'title': 'to do list 1',
+						'note': 'test 1'
+					},
+					{
+						'title': 'to do list 2',
+						'note': 'test 2'
+					},
+					{
+						'title': 'to do list 3',
+						'note': 'test 3'
+					}
+				]
+			},
+			{
+				'topic': 'complex to do',
+				'info':[
+					{
+						'title': 'complex 1 ',
+						'note': 'complex test 1'
+					},
+					{
+						'title': 'complex 2',
+						'note': 'complex test 2'
+					}
+				]
+			}
+		];
 
-		//this prevents users from adding an empty task
-		if(numOfChars > 0){
-		
-			//create a new object and add it to the todo list.
-			var newTask = {'title':toDoTitle,'note':''};
-			$scope.todos.unshift(newTask);
+		$scope.selectedIndex = 0;
 
-			//clears the input after being submitted.
-			$scope.todo='';
+
+		//this adds a new todo task
+		$scope.addToDo = function(index){
 		
-		}else{
+			$scope.errorFound=false;
+			var toDoTitle = $scope.todo;
 			
-			//this will show the error message.
-			$scope.errorFound=true;
-			var error = 'Please type something';
-			errorBox.text(error);
+			var errorBox = angular.element(document.querySelector('.errorMessage'));
 			
-		}
-	};
+			//this refers to the text type input which creates a new to do task.
+			var toDoGenerator = document.getElementById('list-generator');
+			
+			//this gets the number of characters used in the newly created task.
+			var numOfChars = toDoGenerator.value.length;
 
-	//this deletes a selected todo task
-	$scope.removeToDo = function(index){
-		$scope.todos.splice(index,1);
-	};
+			//this prevents users from adding an empty task
+			if(numOfChars > 0){
+			
+				//create a new object and add it to the todo list.
+				var newTask = {'title':toDoTitle,'note':''};
+				$scope.todos[index].info.unshift(newTask);
 
-	$scope.openModal=function(index){
-		$scope.taskIndex = index;
-	};
+				//clears the input after being submitted.
+				$scope.todo='';
+			
+			}else{
+				
+				//this will show the error message.
+				$scope.errorFound=true;
+				var error = 'Please type something';
+				errorBox.text(error);
+				
+			}
+		};
 
-	//this saves the changes made in the modal box
-	$scope.saveChanges = function(){
-		
-	};
-	
-}]);
+		//this deletes a selected todo task
+		$scope.removeToDo = function(index,sIndex){
+			
+			$scope.todos[sIndex].info.splice(index,1);
+
+		};
+
+		$scope.openModal=function(index){
+			$scope.taskIndex = index;
+		};
+
+		$scope.selectedTopic = function(index){
+			$scope.selectedIndex = index;
+		};
+
+		$scope.addTopic = function(){
+			var numOfTopics = angular.element($scope.todos).length;
+			console.log(numOfTopics);
+
+			$scope.selectedIndex = numOfTopics;
+
+
+		};
+
+	}]
+);

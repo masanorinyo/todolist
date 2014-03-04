@@ -6,10 +6,14 @@ angular.module('toDoListApp')
 			$scope.checked = true;
 			$scope.unchecked = false;
 			
-			$scope.cancel = function(index,doneTask){
-				var todoList=$scope.todos;
-				$scope.doneTasks.splice(index,1);
-				todoList.push(doneTask);
+			$scope.cancel = function(index,doneTask,sIndex){
+				var todoList=$scope.todos[sIndex].info;
+				var info = {
+					'title':doneTask.title,
+					'note':doneTask.note
+				};
+				$scope.doneTasks[sIndex].info.splice(index,1);
+				todoList.push(info);
 
 			};
 

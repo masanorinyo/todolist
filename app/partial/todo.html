@@ -1,8 +1,8 @@
-<ul ui-sortable id='todo-category' ng-model='todos'>
-	<li class="input-group" ng-repeat='task in todos'>
+<ul ui-sortable id='todo-category' ng-model='todos[selectedIndex].info'>
+	<li class="input-group" ng-repeat='task in todos[selectedIndex].info'>
 		<hr ng-class="{done:checked,undone:unchecked}">
 		<div class="btn-complete">
-			<div ng-click='completed($index,task)' ng-class='' class="checkBox">
+			<div ng-click='completed($index,task,selectedIndex)' ng-class='' class="checkBox">
 				<i ng-class="{done:checked,undone:unchecked}" class="fa fa-check"></i>
 			</div>
 		</div>

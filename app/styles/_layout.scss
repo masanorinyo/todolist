@@ -12,14 +12,80 @@ $large:65em;
 
 header{
 
-	height:4em;
+	height:2.8em;
 	position:relative;
+	background-color:darken($darkblue,20);
+	margin-bottom:1em;
 
-	h1{
-		height:40%;
-		@include absolute-center;
-	}//h1
+	.dropdown-menu{
+		left:1em;
+		top:3em;
+		
+		li{
 
+			height:2em;	
+			text-align: center;
+			border-bottom:1px dashed $lightgray;
+			font-size:1.3em;
+			cursor:pointer;
+			
+			.fa-plus{
+				
+				margin-top:15px;
+				font-size:1em;
+			}//fa plus icon
+
+			&:hover{
+				
+				color:$orange;
+
+			}//hover effect for dropdown menu list
+		}//dropdown menu list
+
+		li:last-child{
+			
+			border-bottom:none;
+
+		}//dropdown menu last list
+	}//dropdown menu
+
+
+	div{
+
+		display:inline-block;
+
+	}//div for todo list category and menu bar wrappers
+
+	#menubar-wrapper{
+		
+		width:15%;
+		height:100%;
+		position:absolute;
+		left:0;
+
+		.fa-bars{
+			height:50%;
+			font-size:1.5em;
+			cursor:pointer;
+			color:lighten($lightgray,30);
+			@include absolute-center;
+
+		}//fa bars - menu bar
+	}//menubar wrapper
+
+	#todo-category-wrapper{
+		
+		position:relative;
+		width:70%;
+		height:100%;
+
+		h1{
+			color:lighten($lightgray,30);
+			height:50%;
+			@include absolute-center;
+		
+		}//h1
+	}//todo category wrapper
 
 	//tablet size layout
 	@include at-breakpoint($medium){
@@ -41,7 +107,33 @@ header{
 
 }//header
 
-section#todo-list{
+
+
+#todo-categories{
+	
+	width:100%;
+	margin:1em 0;
+	position:relative;
+	
+
+	ul{
+
+		width:100%;
+		margin:auto;
+		background-color:rgb(236,236,236);
+		@include border-radius;	
+
+		li{
+			
+			width:100%;
+			text-align: center;
+			border-bottom:1px dotted $lightgray;
+		
+		}//li
+	}//ul
+}
+
+#todo-list{
 	
 	#todo-generator{
 		margin-bottom:1em;
