@@ -11,9 +11,36 @@
 			<span class="errorMessage"></span>
 		</div>
 	</form>
+
+	<sortable ng-controller='ToDoListCtrl'></sortable>
 	
-	<sortable></sortable>
-	
-	<ul id="completedTasks"></ul>
+	<donelist ng-controller='DoneListCtrl'></donelist>
+
+	<!-- Modal -->
+	<section class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<form ng-submit="saveChanges()" class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+				<input class="modal-title" id="myModalLabel" type="text" ng-model='todos[taskIndex].title' value={{todos[taskIndex].title}}>
+				</div>
+				<div class="modal-body">
+					<textarea ng-model='todos[taskIndex].note' placeholder='Description ...'>{{todos[taskIndex].note}}</textarea>
+				</div>
+				<div class="modal-footer">
+					<button type="button" ng-click='removeToDo(selectedTask.$index)' class="pull-left btn btn-danger" data-dismiss="modal">
+						Delete
+					</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">
+	        			Close
+					</button>
+					<input type="submit" class="btn btn-primary" value="Save changes" data-dismiss="modal">
+				</div>
+			</div>
+		</form>
+	</section>
 
 </section>
+

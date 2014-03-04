@@ -1,8 +1,30 @@
-#todo-category{
-
+//to do and done list styles 
+#todo-category,#doneToDoLists{
+	
 	.input-group{
 		
 		cursor:move;
+		margin-bottom:0.2em;
+		
+		//this will appear when users
+		//click the button complete as a strike through.
+		hr{
+			
+			width:80%;
+			border-color:lighten(black,30);
+			@include absolute-center;
+
+		}//hr
+
+		//active and inactive
+		.done{
+			display:block;
+		}
+
+		.undone{
+			display:none;
+		}
+
 
 		.btn-complete{
 
@@ -14,6 +36,7 @@
 			@include border-left-radius(5px);
 
 			.checkBox{
+				
 				cursor:pointer;
 				width:1em;
 				height:1em;
@@ -21,11 +44,63 @@
 				@include absolute-center;
 				@include border-radius(5px);
 
+				.fa-check{
+
+					font-size:0.95em;
+					@include absolute-center(3px);
+
+				}//font awesome check
 			}//checkbox
 		}//button complete
 
 		.form-control{
+			
 			padding-left:3em;
-		}
+		
+		}//form control
+
+		//without this, to-do title and "X" look separated.
+		.btn-info{
+			
+			@include border-left-radius(0);
+
+		}//btn-danger
+
+		.darkshadow-overwrap{
+
+			width:100%;
+			height:100%;
+			cursor:pointer;
+			@include transparent-background-color(black,0.5);
+			@include border-radius;
+			@include absolute-center($left:-4px);
+
+		}//darkshadow overwrap
 	}//input group
 }//todo category
+
+#doneToDoLists{
+	
+	//this prevents the edge of done lists from
+	//coming out of the darkshadow-overwrap.
+	.form-control{
+	
+		@include border-right-radius;
+	
+	}//form control
+}//doneToDoLists
+
+#myModal{
+	
+	#myModalLabel{
+		border-color:none;
+	}
+
+	textarea{
+		width: 90%;
+		min-height: 300px;
+		resize: none;
+		font-size:0.9em;
+		border-color:rgb(200,200,200);
+	}
+}

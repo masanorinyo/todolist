@@ -1,11 +1,16 @@
-<ul ui-sortable id='todo-category' ng-model='todo' ng-controller='ToDoListCtrl'>
-	<li class="input-group" ng-repeat='todo in todos'>
+<ul ui-sortable id='todo-category' ng-model='todos'>
+	<li class="input-group" ng-repeat='task in todos'>
+		<hr ng-class="{done:checked,undone:unchecked}">
 		<div class="btn-complete">
-			<div ng-click='completed($index)' ng-class='' class="checkBox"></div>
+			<div ng-click='completed($index,task)' ng-class='' class="checkBox">
+				<i ng-class="{done:checked,undone:unchecked}" class="fa fa-check"></i>
+			</div>
 		</div>
-		<span class="form-control">{{todo}}</span>
+		<span class="form-control">{{task.title}}</span>
 		<span class="input-group-btn">
-			<button ng-click='removeToDo($index)' class="btn btn-danger" >X</button>
+			<button class="btn btn-info" ng-click='openModal($index)' data-toggle="modal" data-target="#myModal">
+				<i class="fa fa-info"></i>
+			</button>
 		</span>
 	</li>
 </ul>

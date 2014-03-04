@@ -1,0 +1,12 @@
+<ul  id='doneToDoLists'>
+	<li class="input-group" ng-repeat='doneTask in doneTasks'>
+		<hr ng-class="{done:checked,undone:unchecked}">
+		<div class="btn-complete">
+			<div ng-class='' class="checkBox">
+				<i ng-class="{done:checked,undone:unchecked}" class="fa fa-check"></i>
+			</div>
+		</div>
+		<span class="form-control">{{doneTask.title}}</span>
+		<div ng-click='cancel($index,doneTask)' class="darkshadow-overwrap"></div>
+	</li>
+</ul>
