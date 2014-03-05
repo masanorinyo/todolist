@@ -2,7 +2,7 @@
 
 angular.module('toDoListApp')
 	.controller('MainCtrl', ['$scope',function ($scope){
-	
+		
 		$scope.todos=[
 			{
 				'topic': 'simple to do',
@@ -68,9 +68,9 @@ angular.module('toDoListApp')
 				]
 			}
 		];
-
+		$scope.tadaOn = false;
 		$scope.selectedIndex = 0;
-
+		$scope.editing=false;
 
 		//this adds a new todo task
 		$scope.addToDo = function(index){
@@ -114,19 +114,25 @@ angular.module('toDoListApp')
 		};
 
 		$scope.openModal=function(index){
+			
 			$scope.taskIndex = index;
 		};
 
 		$scope.selectedTopic = function(index){
 			$scope.selectedIndex = index;
+			$scope.editing=false;
 		};
 
 		$scope.addTopic = function(){
 			var numOfTopics = angular.element($scope.todos).length;
-			console.log(numOfTopics);
+			var newTitle = {
+				'topic':'New To Do List',
+				'info':[]
+			};
 
+			$scope.todos.push(newTitle);
 			$scope.selectedIndex = numOfTopics;
-
+			$scope.editing=true;
 
 		};
 

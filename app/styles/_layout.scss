@@ -22,8 +22,8 @@ header{
 		top:3em;
 		
 		li{
-
-			height:2em;	
+			overflow:auto;
+			min-height:2em;	
 			text-align: center;
 			border-bottom:1px dashed $lightgray;
 			font-size:1.3em;
@@ -80,6 +80,7 @@ header{
 		height:100%;
 
 		h1{
+			overflow:hidden;
 			color:lighten($lightgray,30);
 			height:50%;
 			@include absolute-center;

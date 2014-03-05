@@ -1,3 +1,7 @@
+#nameEditor{
+	@include absolute-center;
+}
+
 //to do and done list styles 
 #todo-category,#doneToDoLists{
 	
@@ -6,6 +10,11 @@
 		cursor:move;
 		margin-bottom:0.2em;
 		
+		.redback{
+			background-color:red;
+		}
+
+
 		//this will appear when users
 		//click the button complete as a strike through.
 		hr{
@@ -97,7 +106,7 @@
 	}
 
 	.modal-header{
-		background-color:$lightgray;
+		background-color:$darkblue;
 	}
 
 	textarea{
@@ -106,5 +115,6 @@
 		resize: none;
 		font-size:0.9em;
 		border-color:rgb(200,200,200);
+		background-color:darken(white,5);
 	}
 }

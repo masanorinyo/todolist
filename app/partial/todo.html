@@ -2,7 +2,7 @@
 	<li class="input-group" ng-repeat='task in todos[selectedIndex].info'>
 		<hr ng-class="{done:checked,undone:unchecked}">
 		<div class="btn-complete">
-			<div ng-click='completed($index,task,selectedIndex)' ng-class='' class="checkBox">
+			<div ng-click='completed($index,task,selectedIndex);checked=true;unchecked=false;' class="checkBox">
 				<i ng-class="{done:checked,undone:unchecked}" class="fa fa-check"></i>
 			</div>
 		</div>

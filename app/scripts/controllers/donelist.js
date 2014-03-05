@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('toDoListApp')
-	.controller('DoneListCtrl', ['$scope',function ($scope){
+	.controller('DoneListCtrl', ['$scope','$element','$timeout',function ($scope,$element,$timeout){
 			
 			$scope.checked = true;
 			$scope.unchecked = false;
@@ -12,9 +12,14 @@ angular.module('toDoListApp')
 					'title':doneTask.title,
 					'note':doneTask.note
 				};
-				$scope.doneTasks[sIndex].info.splice(index,1);
-				todoList.push(info);
 
+				angular.element($element.children('li')[index]).fadeOut();
+
+				$timeout(
+					function(){
+						$scope.doneTasks[sIndex].info.splice(index,1);
+						todoList.push(info);
+					},400);
 			};
 
 		}]
