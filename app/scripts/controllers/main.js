@@ -5,7 +5,7 @@ angular.module('toDoListApp')
 		
 		$scope.todos=[
 			{
-				'topic': 'simple to do',
+				'topic': 'Simple To Do',
 				'info':[
 					{
 						'title': 'to do list 1',
@@ -22,7 +22,7 @@ angular.module('toDoListApp')
 				]
 			},
 			{
-				'topic': 'complex to do',
+				'topic': 'Complex To Do',
 				'info':[
 					{
 						'title': 'complex 1 ',
@@ -68,7 +68,7 @@ angular.module('toDoListApp')
 				]
 			}
 		];
-		$scope.tadaOn = false;
+
 		$scope.selectedIndex = 0;
 		$scope.editing=false;
 
@@ -130,11 +130,22 @@ angular.module('toDoListApp')
 				'info':[]
 			};
 
-			$scope.todos.push(newTitle);
-			$scope.selectedIndex = numOfTopics;
-			$scope.editing=true;
+			var doneList = {
+				'topic':'New To Do List',
+				'info':[]
+			};
 
+			$scope.selectedIndex = numOfTopics;
+			$scope.todos.push(newTitle);
+			$scope.doneTasks.push(doneList);
+			
 		};
+
+		$scope.removeTopic = function(index){
+			console.log(index);
+			
+
+		}
 
 	}]
 );

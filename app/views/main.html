@@ -1,10 +1,19 @@
 <header>
 	<div id="menubar-wrapper" class="dropdown">  
 		<i class="fa fa-bars dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#"></i>
-	<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-	    <li ng-repeat='task in todos' ng-click='selectedTopic($index)'>{{task.topic}}</li>
-	    <li ng-click='addTopic()'><i class="fa fa-plus"></i></li>
-	</ul>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+		    <li ng-repeat='task in todos' ng-click='selectedTopic($index)'>
+		    	{{task.topic}}
+		    </li>
+		    <li ng-click='addTopic()'>
+		    	<i class="fa fa-plus"></i>
+		    </li>
+		    <li ng-click='removeTopic()'>
+		    	<a href='#' ng-href='!#/removeList'>
+		    		<i class="fa fa-trash-o"></i>
+		    	</a>
+		    </li>
+		</ul>
 	</div>
    
 	<div id="todo-category-wrapper" edit-name index='{{selectedIndex}}' form-style='form-control'>
@@ -37,14 +46,15 @@
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 							&times;
 						</button>
-					<input class="modal-title" id="myModalLabel" type="text" ng-model='todos[selectedIndex].info[taskIndex].title' value={{todos[selectedIndex].info[taskIndex].title}}>
+					<input class="modal-title" id="myModalLabel" type="text" ng-model='todos[selectedIndex].info[taskIndex].title' value=' {{todos[selectedIndex].info[taskIndex].title}}'>
 					</div>
 					<div class="modal-body">
-						<textarea ng-model='todos[selectedIndex].info[taskIndex].note' placeholder='Description ...'>{{todos[selectedIndex].info[taskIndex].note}}</textarea>
+						<h2>-Note-</h2>
+						<textarea ng-model='todos[selectedIndex].info[taskIndex].note' placeholder='Description ...'> {{todos[selectedIndex].info[taskIndex].note}}</textarea>
 					</div>
 					<div class="modal-footer">
 						<button type="button" ng-click='removeToDo(taskIndex,selectedIndex)' class="pull-left btn btn-danger" data-dismiss="modal">
-							Delete
+							<i class='fa fa-trash-o'></i> Delete
 						</button>
 						<button type="button" class="btn btn-default" data-dismiss="modal">
 		        			Close
@@ -56,7 +66,6 @@
 				</div>
 			</div>
 		</section>
-
 	</section>
 </div>
 

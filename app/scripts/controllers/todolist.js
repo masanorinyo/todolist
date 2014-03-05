@@ -23,6 +23,8 @@ angular.module('toDoListApp')
 						$scope.todos[sIndex].info.splice(index,1);
 						completedTaskList.push(done);
 					},400);
+				
 			};
+
 		}]
 	);

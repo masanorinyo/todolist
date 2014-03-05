@@ -20,24 +20,27 @@ header{
 	.dropdown-menu{
 		left:1em;
 		top:3em;
-		
+		margin:0;
+
 		li{
+			position:relative;
 			overflow:auto;
 			min-height:2em;	
+			padding:10px 0;
 			text-align: center;
 			border-bottom:1px dashed $lightgray;
 			font-size:1.3em;
 			cursor:pointer;
 			
-			.fa-plus{
+			.fa{
 				
-				margin-top:15px;
-				font-size:1em;
+				padding-top:5px;
+
 			}//fa plus icon
 
 			&:hover{
 				
-				color:$orange;
+				color:$orange!important;
 
 			}//hover effect for dropdown menu list
 		}//dropdown menu list
@@ -64,13 +67,31 @@ header{
 		left:0;
 
 		.fa-bars{
+		
 			height:50%;
 			font-size:1.5em;
 			cursor:pointer;
 			color:lighten($lightgray,30);
 			@include absolute-center;
-
+		
 		}//fa bars - menu bar
+
+		li{
+			
+			color:$darkgray;
+			font-size:0.9em;
+
+			.fa{
+
+				font-size:1.3em;
+
+			}
+
+			.fa-trash-o{
+				margin-top:2px;
+			}
+
+		}//li
 	}//menubar wrapper
 
 	#todo-category-wrapper{

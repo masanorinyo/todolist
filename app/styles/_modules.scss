@@ -107,6 +107,17 @@
 
 	.modal-header{
 		background-color:$darkblue;
+
+		.close{
+			color:$lightgray;
+		}
+	}
+	
+	h2{
+
+		color:$lightgray;
+		margin-bottom:1em;
+	
 	}
 
 	textarea{
@@ -118,3 +129,4 @@
 		background-color:darken(white,5);
 	}
 }
+
