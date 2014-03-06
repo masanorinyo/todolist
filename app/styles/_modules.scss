@@ -99,7 +99,7 @@
 	}//form control
 }//doneToDoLists
 
-#myModal{
+#descriptionModal{
 	
 	#myModalLabel{
 		border-color:none;
@@ -128,5 +128,18 @@
 		border-color:rgb(200,200,200);
 		background-color:darken(white,5);
 	}
+}
+
+#removeModal{
+	h2{
+		color:$darkgray;
+		 @include single-text-shadow(none);
+	}
+
+	.topic{
+		color:$darkblue;
+		font-size:0.9em;
+	}
+
 }
 

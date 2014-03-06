@@ -8,10 +8,8 @@
 		    <li ng-click='addTopic()'>
 		    	<i class="fa fa-plus"></i>
 		    </li>
-		    <li ng-click='removeTopic()'>
-		    	<a href='#' ng-href='!#/removeList'>
-		    		<i class="fa fa-trash-o"></i>
-		    	</a>
+		    <li ng-click='openModal($index)' data-toggle="modal" data-target="#removeModal">
+		    	<i class="fa fa-trash-o"></i>
 		    </li>
 		</ul>
 	</div>
@@ -39,7 +37,7 @@
 		<donelist ng-controller='DoneListCtrl'></donelist>
 
 		<!-- Modal -->
-		<section class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<section class="modal fade" id="descriptionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -64,6 +62,32 @@
 						</button>
 					</div>
 				</div>
+			</div>
+		</section>
+		<section class="modal fade" id="removeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<form ng-submit='removeTopic()'class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							&times;
+						</button>
+						<h2>Please select a list to delete</h2>
+					</div>
+					<div class="modal-body">
+						<ul ng-repeat='task in todos'>
+							<li>
+								<input type='checkbox' name='{{task.topic}}' ng-click='addRemovingList($index)' >
+									<span class='topic'>{{task.topic}}</span>
+							</li>
+						</ul>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+		        			Close
+						</button>
+						<input type="submit" class="btn btn-danger" value='Delete'>
+					</div>
+				</form>
 			</div>
 		</section>
 	</section>

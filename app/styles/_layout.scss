@@ -73,7 +73,11 @@ header{
 			cursor:pointer;
 			color:lighten($lightgray,30);
 			@include absolute-center;
-		
+			
+			&:hover{
+				color:$cyan;
+			}
+
 		}//fa bars - menu bar
 
 		li{
@@ -104,6 +108,7 @@ header{
 			overflow:hidden;
 			color:lighten($lightgray,30);
 			height:50%;
+			cursor:pointer;
 			@include absolute-center;
 		
 		}//h1

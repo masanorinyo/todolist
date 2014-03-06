@@ -71,6 +71,8 @@ angular.module('toDoListApp')
 
 		$scope.selectedIndex = 0;
 		$scope.editing=false;
+		$scope.removingList =[];
+		
 
 		//this adds a new todo task
 		$scope.addToDo = function(index){
@@ -141,11 +143,41 @@ angular.module('toDoListApp')
 			
 		};
 
-		$scope.removeTopic = function(index){
-			console.log(index);
+		$scope.addRemovingList = function(index){
+			
+			var removingArray =$scope.removingList;
+			
+			if(removingArray.indexOf(index) === -1){
+				
+				removingArray.push(index);
+				
+			}else{
+
+				removingArray.splice(removingArray.indexOf(index),1);
+				
+			}
+			
+		};
+
+		$scope.removeTopic = function(){
+			
+			var numOfList = angular.element($scope.removingList).length;
+			var removedItem = 0;
 			
 
-		}
+			for(var num = 0; num<numOfList; num++){
+				$scope.todos.splice($scope.removingList[num]-removedItem,1);
+				$scope.doneTasks.splice($scope.removingList[num]-removedItem,1);
+				removedItem++;
+			}
+
+			$scope.removingList=[];
+			$scope.selectedIndex=0;
+
+			if(angular.element($scope.todos).length===0){
+				$scope.addTopic();
+			}
+		};
 
 	}]
 );
