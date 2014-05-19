@@ -2,7 +2,7 @@
 
 angular.module('toDoListApp')
 	.controller('MainCtrl', ['$scope',function ($scope){
-		
+
 		$scope.todos=[
 			{
 				'topic': 'Simple To Do',
@@ -10,27 +10,6 @@ angular.module('toDoListApp')
 					{
 						'title': 'to do list 1',
 						'note': 'test 1'
-					},
-					{
-						'title': 'to do list 2',
-						'note': 'test 2'
-					},
-					{
-						'title': 'to do list 3',
-						'note': 'test 3'
-					}
-				]
-			},
-			{
-				'topic': 'Complex To Do',
-				'info':[
-					{
-						'title': 'complex 1 ',
-						'note': 'complex test 1'
-					},
-					{
-						'title': 'complex 2',
-						'note': 'complex test 2'
 					}
 				]
 			}
@@ -39,33 +18,7 @@ angular.module('toDoListApp')
 		$scope.doneTasks=[
 			{
 				'topic': 'simple to do',
-				'info':[
-					{
-						'title': 'to do list 1',
-						'note': 'test 1'
-					},
-					{
-						'title': 'to do list 2',
-						'note': 'test 2'
-					},
-					{
-						'title': 'to do list 3',
-						'note': 'test 3'
-					}
-				]
-			},
-			{
-				'topic': 'complex to do',
-				'info':[
-					{
-						'title': 'complex 1 ',
-						'note': 'complex test 1'
-					},
-					{
-						'title': 'complex 2',
-						'note': 'complex test 2'
-					}
-				]
+				'info':[]
 			}
 		];
 
@@ -164,20 +117,25 @@ angular.module('toDoListApp')
 			var numOfList = angular.element($scope.removingList).length;
 			var removedItem = 0;
 			
-
 			for(var num = 0; num<numOfList; num++){
+			
 				$scope.todos.splice($scope.removingList[num]-removedItem,1);
 				$scope.doneTasks.splice($scope.removingList[num]-removedItem,1);
 				removedItem++;
+			
 			}
 
 			$scope.removingList=[];
+
+			//this will show the first list of to-do list
 			$scope.selectedIndex=0;
 
+			//if all the lists were deleted, a new to do list will be added.
 			if(angular.element($scope.todos).length===0){
+			
 				$scope.addTopic();
+			
 			}
 		};
-
 	}]
 );

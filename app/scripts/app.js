@@ -1,7 +1,6 @@
 'use strict';
 
 angular.module('toDoListApp', [
-  'ngCookies',
   'ngResource',
   'ngSanitize',
   'ngRoute',
